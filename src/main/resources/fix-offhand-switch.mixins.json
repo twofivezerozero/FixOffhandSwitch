@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "twofive.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"MixinClientPlayerInteractionManager"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

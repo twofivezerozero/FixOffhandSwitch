@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "fix-offhand-switch",
+	"version": "${version}",
+	"name": "Fix Offhand Switch",
+	"description": "This removes the item-switching behaviour of animal armour described in MC-273300",
+	"authors": [
+		"2500"
+	],
+	"contact": {
+		"sources": "https://github.com/twofivezerozero/FixOffhandSwitch"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/fix-offhand-switch/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"twofive.FixOffhandSwitch"
+		]
+	},
+	"mixins": [
+		"fix-offhand-switch.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
