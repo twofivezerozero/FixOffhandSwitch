@@ -14,15 +14,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ClientPlayerInteractionManager.class)
 public abstract class MixinClientPlayerInteractionManager {
-	@Inject(method = "interactItem", at = @At("HEAD"), cancellable = true)
-	private void preventOffhandArmorSwitch(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
-		ItemStack stack = player.getStackInHand(hand);
-		if (hand == Hand.OFF_HAND
-				&& stack.getItem() instanceof ArmorItem armor
-				&& armor.getSlotType().getType() != EquipmentSlot.Type.HUMANOID_ARMOR) {
-
-			cir.setReturnValue(ActionResult.FAIL);
-			cir.cancel();
-		}
-	}
+    @Inject(method = "interactItem", at = @At("HEAD"), cancellable = true)
+    private void preventOffhandArmorSwitch(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
+        ItemStack stack = player.getStackInHand(hand);
+        if (hand == Hand.OFF_HAND
+                && stack.getItem() instanceof ArmorItem armor
+                && armor.getSlotType().getType() != EquipmentSlot.Type.HUMANOID_ARMOR) {
+            cir.setReturnValue(ActionResult.FAIL);
+            cir.cancel();
+        }
+    }
 }
